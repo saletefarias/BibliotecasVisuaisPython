@@ -1,0 +1,21 @@
+#plt.plot() para criar um gráfico de linha simples.
+# Aplicar marker="o" para marcar os pontos no gráfico.
+# Nomear os eixos com plt.xlabel() e plt.ylabel().
+# Ativar o grid com plt.grid(True) para facilitar a leitura.
+
+import matplotlib.pyplot as plt
+
+# Séculos (do XI ao XXI)
+seculos = list(range(11, 22))  # de 11 até 21
+
+# População fictícia (em milhões)
+populacao = [2, 2.5, 3, 3.2, 3.6, 4, 4.5, 5.5, 7, 10, 15]
+
+# Criando o gráfico de linha
+plt.figure(figsize=(8, 5))
+plt.plot(seculos, populacao, marker="o", color="brown")
+plt.title("Evolução da População - Reino de Exemplo")
+plt.xlabel("Século")
+plt.ylabel("População (milhões)")
+plt.grid(True)
+plt.show()
