@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+
+# Dados
+periodos = ["Antiguidade", "Idade Média", "Idade Moderna", "Idade Contemporânea"]
+conflitos = [12, 25, 18, 30]
+
+# Gráfico de barras
+plt.figure(figsize=(8, 5))
+plt.bar(periodos, conflitos, color="firebrick")
+plt.title("Número de Conflitos por Período Histórico")
+plt.xlabel("Período Histórico")
+plt.ylabel("Quantidade de Conflitos")
+plt.ylim(0, max(conflitos) + 5)
+plt.grid(axis="y", linestyle="--", alpha=0.5)
+plt.tight_layout()
+plt.show()
