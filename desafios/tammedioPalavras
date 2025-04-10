@@ -1,0 +1,25 @@
+#Escolher uma frase e dividir em palavras.
+# Para cada palavra, calcular o número de letras.
+# Plotar um gráfico de dispersão mostrando o tamanho de cada palavra.
+
+import matplotlib.pyplot as plt
+
+# Frase escolhida
+frase = "A história é feita de pequenas decisões que moldam o futuro."
+
+# Limpeza e separação
+palavras = frase.lower().replace(".", "").split()
+
+# Cálculo do tamanho de cada palavra
+tamanhos = [len(palavra) for palavra in palavras]
+
+# Criando o gráfico de dispersão
+plt.figure(figsize=(8, 5))
+plt.scatter(palavras, tamanhos, color="purple")
+plt.title("Tamanho das Palavras em uma Frase")
+plt.xlabel("Palavras")
+plt.ylabel("Número de Letras")
+plt.grid(True)
+plt.show()
+
+
