@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+
+# Nomes dos partidos fictícios
+partidos = ["Partido Sol", "Partido Lua", "Partido Verde", "Partido Mar", "Partido Terra"]
+
+# Número de cadeiras de cada partido
+cadeiras = [40, 25, 20, 10, 5]
+
+# Criando o gráfico de pizza
+plt.figure(figsize=(6, 6))
+plt.pie(cadeiras, labels=partidos, autopct="%1.1f%%", startangle=90)
+plt.title("Distribuição de Cadeiras no Parlamento")
+plt.show()
