@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Cidades e populações por período (dados fictícios em milhares)
+cidades = ["Bagdá", "Constantinopla", "Córdova"]
+ano_1000 = [1200, 800, 600]
+
+cidades_1500 = ["Pequim", "Cuzco", "Paris"]
+ano_1500 = [700, 500, 400]
+
+cidades_2000 = ["Tóquio", "Nova York", "São Paulo"]
+ano_2000 = [30000, 18000, 12000]
+
+# Organizando os dados
+indices = np.arange(3)  # 3 cidades por período
+
+# Gráfico empilhado
+plt.figure(figsize=(10, 6))
+plt.bar(indices, ano_1000, label="Ano 1000", color="sienna")
+plt.bar(indices, ano_1500, bottom=ano_1000, label="Ano 1500", color="darkorange")
+soma_1000_1500 = [ano_1000[i] + ano_1500[i] for i in range(3)]
+plt.bar(indices, ano_2000, bottom=soma_1000_1500, label="Ano 2000", color="gold")
+
+# Eixos e rótulos
+plt.xticks(indices, ["Cidade 1", "Cidade 2", "Cidade 3"])
+plt.ylabel("População (milhares)")
+plt.title("Crescimento das Cidades Mais Populosas em Três Períodos Históricos")
+plt.legend()
+plt.tight_layout()
+plt.show()
