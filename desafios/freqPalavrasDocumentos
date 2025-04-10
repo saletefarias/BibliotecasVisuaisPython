@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+
+# Trecho fictício de um documento histórico
+texto = """
+Todos os cidadãos têm direito à liberdade. A liberdade é um valor essencial para a sociedade. 
+Sem liberdade, não há igualdade nem justiça. A luta por liberdade é permanente.
+"""
+
+# Pré-processamento
+palavras = texto.lower().replace(".", "").replace(",", "").replace("à", "a").split()
+
+# Contagem de palavras
+frequencia = {}
+for palavra in palavras:
+    frequencia[palavra] = frequencia.get(palavra, 0) + 1
+
+# Ordenando por frequência
+palavras_ordenadas = sorted(frequencia.items(), key=lambda x: x[1], reverse=True)
+palavras_top, freq_top = zip(*palavras_ordenadas)
+
+# Gráfico de barras
+plt.figure(figsize=(10, 5))
+plt.bar(palavras_top, freq_top, color="indigo")
+plt.title("Frequência de Palavras em Trecho Histórico")
+plt.xlabel("Palavras")
+plt.ylabel("Frequência")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
