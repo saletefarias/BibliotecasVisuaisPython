@@ -1,3 +1,7 @@
+# labels: para nomear as fatias,
+# autopct: para mostrar os percentuais no gráfico,
+# startangle: para girar o início da pizza.
+
 import matplotlib.pyplot as plt
 
 # Nomes dos partidos fictícios
