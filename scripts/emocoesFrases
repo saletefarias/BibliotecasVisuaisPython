@@ -1,0 +1,43 @@
+#Explicação:
+#A frase é transformada em uma lista de palavras, sem vírgulas ou pontos.
+#Comparamos cada palavra com listas pré-definidas de emoções.
+#A soma das ocorrências nos dá a base para o gráfico de pizza.
+#frase.lower() → Transforma toda a frase em letras minúsculas, o que evita problemas na comparação com as palavras das listas.
+# Exemplo: "Feliz" vira "feliz".
+
+# .replace(",", "").replace(".", "")  → Remove as vírgulas e os pontos da frase. Isso é importante porque "feliz," com vírgula seria diferente de "feliz" puro.
+# Exemplo: "feliz," vira "feliz".
+
+# .split() → Divide a frase em uma lista de palavras, separando pelo espaço.
+# Exemplo: "hoje o dia está bom" vira ["hoje", "o", "dia", "está", "bom"].
+# A variável palavras_na_frase vai conter uma lista de palavras limpas que podem ser comparadas diretamente com as listas de palavras positivas e negativas.
+
+#abaixo o código resposta
+
+import matplotlib.pyplot as plt
+
+# Frase escolhida
+frase = "Hoje o dia está bom, me sinto feliz e animado, mas um pouco cansado."
+
+# Listas de palavras positivas e negativas
+palavras_positivas = ["feliz", "bom", "ótimo", "alegre", "animado", "maravilhoso"]
+palavras_negativas = ["triste", "ruim", "horrível", "cansado", "chateado", "péssimo"]
+
+# Preparar a frase
+palavras_na_frase = frase.lower().replace(",", "").replace(".", "").split()
+
+# Contar palavras positivas e negativas
+positivas = sum(p in palavras_positivas for p in palavras_na_frase)
+negativas = sum(p in palavras_negativas for p in palavras_na_frase)
+
+# Dados para o gráfico
+valores = [positivas, negativas]
+categorias = ["Palavras Positivas", "Palavras Negativas"]
+cores = ["green", "red"]
+
+# Gráfico de pizza
+plt.figure(figsize=(6, 6))
+plt.pie(valores, labels=categorias, colors=cores, autopct='%1.1f%%', startangle=140)
+plt.title("Análise de Emoções na Frase")
+plt.axis("equal")  # Deixa o gráfico em formato de círculo
+plt.show()
