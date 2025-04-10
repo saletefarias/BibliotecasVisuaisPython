@@ -18,4 +18,10 @@ palavras_top, freq_top = zip(*palavras_ordenadas)
 # Gráfico de barras
 plt.figure(figsize=(8, 4))
 plt.bar(palavras_top, freq_top, color="blue")
-plt.title("Contagem
+plt.title("Contagem de Palavras na Frase")
+plt.xlabel("Palavras")
+plt.ylabel("Frequência")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
