@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+
+# Frase qualquer
+frase = "A leitura é essencial para o desenvolvimento do pensamento crítico e da criatividade."
+
+# Limpeza e separação
+palavras = frase.lower().replace(".", "").split()
+
+# Contagem das palavras
+frequencia = {}
+for palavra in palavras:
+    frequencia[palavra] = frequencia.get(palavra, 0) + 1
+
+# Dados organizados
+palavras_ordenadas = sorted(frequencia.items(), key=lambda x: x[1], reverse=True)
+palavras_top, freq_top = zip(*palavras_ordenadas)
+
+# Gráfico de barras
+plt.figure(figsize=(8, 4))
+plt.bar(palavras_top, freq_top, color="blue")
+plt.title("Contagem
