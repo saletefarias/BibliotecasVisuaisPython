@@ -1,30 +1,43 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Cidades e populações por período (dados fictícios em milhares)
-cidades = ["Bagdá", "Constantinopla", "Córdova"]
-ano_1000 = [1200, 800, 600]
+# Períodos
+periodos = ["Ano 1000", "Ano 1500", "Ano 2000"]
+indices = np.arange(len(periodos))
 
-cidades_1500 = ["Pequim", "Cuzco", "Paris"]
-ano_1500 = [700, 500, 400]
+# População por cidade (em milhares)
+bagda = [1200, 0, 0]
+constantinopla = [800, 0, 0]
+cordova = [600, 0, 0]
 
-cidades_2000 = ["Tóquio", "Nova York", "São Paulo"]
-ano_2000 = [30000, 18000, 12000]
+pequim = [0, 700, 0]
+cuzco = [0, 500, 0]
+paris = [0, 400, 0]
 
-# Organizando os dados
-indices = np.arange(3)  # 3 cidades por período
+toquio = [0, 0, 30000]
+nova_york = [0, 0, 18000]
+sao_paulo = [0, 0, 12000]
 
-# Gráfico empilhado
+# Inicializando o gráfico
 plt.figure(figsize=(10, 6))
-plt.bar(indices, ano_1000, label="Ano 1000", color="sienna")
-plt.bar(indices, ano_1500, bottom=ano_1000, label="Ano 1500", color="darkorange")
-soma_1000_1500 = [ano_1000[i] + ano_1500[i] for i in range(3)]
-plt.bar(indices, ano_2000, bottom=soma_1000_1500, label="Ano 2000", color="gold")
 
-# Eixos e rótulos
-plt.xticks(indices, ["Cidade 1", "Cidade 2", "Cidade 3"])
+# Adicionando as camadas de cidades
+plt.bar(indices, bagda, label="Bagdá", color="#8dd3c7")
+plt.bar(indices, constantinopla, bottom=bagda, label="Constantinopla", color="#ffffb3")
+plt.bar(indices, cordova, bottom=np.array(bagda)+np.array(constantinopla), label="Córdova", color="#bebada")
+
+plt.bar(indices, pequim, label="Pequim", color="#fb8072")
+plt.bar(indices, cuzco, bottom=pequim, label="Cuzco", color="#80b1d3")
+plt.bar(indices, paris, bottom=np.array(pequim)+np.array(cuzco), label="Paris", color="#fdb462")
+
+plt.bar(indices, toquio, label="Tóquio", color="#b3de69")
+plt.bar(indices, nova_york, bottom=toquio, label="Nova York", color="#fccde5")
+plt.bar(indices, sao_paulo, bottom=np.array(toquio)+np.array(nova_york), label="São Paulo", color="#d9d9d9")
+
+# Rótulos e título
+plt.xticks(indices, periodos)
 plt.ylabel("População (milhares)")
-plt.title("Crescimento das Cidades Mais Populosas em Três Períodos Históricos")
-plt.legend()
+plt.title("Cidades Mais Populosas por Período Histórico")
+plt.legend(title="Cidade", bbox_to_anchor=(1.05, 1), loc="upper left")
 plt.tight_layout()
 plt.show()
