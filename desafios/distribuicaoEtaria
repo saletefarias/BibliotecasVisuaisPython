@@ -1,0 +1,26 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Dados da distribuição etária
+faixas_etarias = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
+percentuais = [15, 25, 20, 18, 12, 10]
+
+# Criando um DataFrame
+df = pd.DataFrame({
+    "Faixa Etária": faixas_etarias,
+    "Percentual": percentuais
+})
+
+# Estilo do gráfico
+sns.set(style="whitegrid")
+
+# Criando o gráfico de colunas
+plt.figure(figsize=(8, 5))
+sns.barplot(x="Faixa Etária", y="Percentual", data=df, palette="Blues_d")
+plt.title("Distribuição Etária dos Eleitores")
+plt.xlabel("Faixa Etária")
+plt.ylabel("Percentual (%)")
+plt.ylim(0, max(percentuais) + 5)
+plt.tight_layout()
+plt.show()
