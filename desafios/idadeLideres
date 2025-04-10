@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+
+# Dados fictícios de líderes e idades ao assumir o poder
+lideres = ["Napoleão Bonaparte", "Getúlio Vargas", "Angela Merkel", "Nelson Mandela", "Dom Pedro II"]
+idades = [35, 48, 51, 75, 14]  # Idades ao assumir o poder
+
+# Gráfico de barras
+plt.figure(figsize=(9, 5))
+plt.bar(lideres, idades, color="darkblue")
+plt.title("Idade ao Assumir o Poder - Líderes Históricos")
+plt.xlabel("Líder")
+plt.ylabel("Idade")
+plt.ylim(0, max(idades) + 10)
+plt.xticks(rotation=45)
+plt.grid(axis="y", linestyle="--", alpha=0.5)
+plt.tight_layout()
+plt.show()
