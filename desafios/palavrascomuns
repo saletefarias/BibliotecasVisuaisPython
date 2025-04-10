@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+
+# Trecho de texto curto
+texto = """
+A liberdade de expressão é um direito fundamental.
+A democracia depende da participação cidadã e da liberdade de pensamento.
+"""
+
+# Pré-processamento: limpeza e separação
+palavras = texto.lower().replace(".", "").replace(",", "").replace("\n", " ").split()
+
+# Contagem de frequência com dicionário
+frequencia = {}
+for palavra in palavras:
+    frequencia[palavra] = frequencia.get(palavra, 0) + 1
+
+# Organizando os dados para o gráfico
+palavras_ordenadas = sorted(frequencia.items(), key=lambda x: x[1], reverse=True)
+palavras_top, freq_top = zip(*palavras_ordenadas)
+
+# Gráfico de barras
+plt.figure(figsize=(10, 5))
+plt.bar(palavras_top, freq_top, color="darkgreen")
+plt.title("Palavras Mais Frequentes no Texto")
+plt.xlabel("Palavras")
+plt.ylabel("Frequência")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
