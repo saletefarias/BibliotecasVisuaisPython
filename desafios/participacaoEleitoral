@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+
+# Dados de participação eleitoral
+anos = [2000, 2004, 2008, 2012, 2016, 2020]
+participacao = [75, 73, 78, 80, 74, 76]
+
+# Criando o gráfico
+plt.figure(figsize=(8, 5))
+plt.plot(anos, participacao, marker='o', linestyle='-', color='blue')
+
+# Adicionando os rótulos nos pontos
+for ano, valor in zip(anos, participacao):
+    plt.text(ano, valor + 0.5, f"{valor}%", ha='center')
+
+# Títulos e rótulos
+plt.title("Evolução da Participação Eleitoral")
+plt.xlabel("Ano")
+plt.ylabel("Participação (%)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
