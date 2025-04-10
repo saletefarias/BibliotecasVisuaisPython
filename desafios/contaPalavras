@@ -15,6 +15,14 @@ for palavra in palavras:
 palavras_ordenadas = sorted(frequencia.items(), key=lambda x: x[1], reverse=True)
 palavras_top, freq_top = zip(*palavras_ordenadas)
 
+#Explicação
+#frequencia.items() Transforma o dicionário em uma lista de tuplas
+#sorted(..., key=lambda x: x[1]) Ordena essa lista de tuplas com base no segundo elemento de cada tupla (ou seja, a frequência).
+#lambda x: x[1] significa: use o valor da frequência como critério de ordenação.
+# reverse=True Faz com que a ordenação seja decrescente (da palavra mais frequente para a menos frequente).
+# zip(*palavras_ordenadas) Desempacota a lista de tuplas em duas listas separadas: Uma só com as palavras. Outra só com as frequências.
+# palavras_top, freq_top = Atribui a lista de palavras à variável palavras_top E as frequências à variável freq_top
+
 # Gráfico de barras
 plt.figure(figsize=(8, 4))
 plt.bar(palavras_top, freq_top, color="blue")
