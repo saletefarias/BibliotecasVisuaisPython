@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+
+# Grupos ideológicos e proporções
+grupos = ["Esquerda", "Centro-esquerda", "Centro", "Centro-direita", "Direita"]
+percentuais = [30, 20, 15, 20, 15]
+
+# Criando o gráfico de pizza
+plt.figure(figsize=(6, 6))
+plt.pie(percentuais, labels=grupos, autopct="%1.1f%%", startangle=90)
+plt.title("Distribuição Ideológica dos Eleitores")
+plt.axis("equal")  # Deixa a pizza redonda
+plt.show()
