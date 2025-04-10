@@ -1,0 +1,28 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Frases escolhidas
+frase1 = "A democracia é essencial para a liberdade e justiça social."
+frase2 = "A justiça depende da igualdade, da liberdade e da participação cidadã."
+
+# Função para contar palavras
+def contar_palavras(frase, nome_frase):
+    palavras = frase.lower().replace(".", "").replace(",", "").split()
+    return [{"Palavra": p, "Frequência": 1, "Frase": nome_frase} for p in palavras]
+
+# Criando os dados
+dados1 = contar_palavras(frase1, "Frase 1")
+dados2 = contar_palavras(frase2, "Frase 2")
+
+# Agrupando em um DataFrame
+df = pd.DataFrame(dados1 + dados2)
+df = df.groupby(["Palavra", "Frase"]).sum().reset_index()
+
+# Gráfico
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df, x="Palavra", y="Frequência", hue="Frase")
+plt.title("Comparação de Frequência de Palavras entre Duas Frases")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
